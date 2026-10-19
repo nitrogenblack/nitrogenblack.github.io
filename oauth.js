@@ -16,11 +16,11 @@
       .replace(/=+$/, '')
   }
 
-  function casdoorAuthorizeUrl(cfg) {
-    var casdoor = trimSlash(cfg.casdoorPublicUrl)
+  function authserverAuthorizeUrl(cfg) {
+    var authserver = trimSlash(cfg.authserverPublicUrl)
     var portal = trimSlash(cfg.portalUrl)
-    var clientId = cfg.casdoorClientId
-    if (!casdoor || !portal || !clientId) {
+    var clientId = cfg.authserverClientId
+    if (!authserver || !portal || !clientId) {
       return portal || '#'
     }
 
@@ -33,8 +33,8 @@
       state: randomState(),
     })
 
-    return casdoor + '/login/oauth/authorize?' + params.toString()
+    return authserver + '/login/oauth/authorize?' + params.toString()
   }
 
-  global.buildCasdoorLoginUrl = casdoorAuthorizeUrl
+  global.buildAuthserverLoginUrl = authserverAuthorizeUrl
 })(window)

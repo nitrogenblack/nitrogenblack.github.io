@@ -3,19 +3,21 @@
   var cfg = window.SITE_CONFIG || {}
 
   var portalUrl = cfg.portalUrl
+  var authserverPublicUrl = cfg.authserverPublicUrl
   if (host === 'localhost' || host === '127.0.0.1') {
     portalUrl = 'http://portal.localhost:8080'
+    authserverPublicUrl = 'http://auth.localhost:8080'
   }
 
   var loginCfg = {
     portalUrl: portalUrl,
-    casdoorPublicUrl: cfg.casdoorPublicUrl || 'http://auth.localhost:8080',
-    casdoorClientId: cfg.casdoorClientId || 'portal-dev-client-id',
+    authserverPublicUrl: authserverPublicUrl || 'http://auth.localhost:8080',
+    authserverClientId: cfg.authserverClientId || 'portal-dev-client-id',
   }
 
   var loginHref =
-    typeof window.buildCasdoorLoginUrl === 'function'
-      ? window.buildCasdoorLoginUrl(loginCfg)
+    typeof window.buildAuthserverLoginUrl === 'function'
+      ? window.buildAuthserverLoginUrl(loginCfg)
       : portalUrl
 
   document.getElementById('login-link').href = loginHref

@@ -1,5 +1,5 @@
 window.SITE_CONFIG = {
-  portalUrl: 'https://portal.localhost:8080',
-  casdoorPublicUrl: 'http://auth.localhost:8080',
-  casdoorClientId: 'portal-dev-client-id',
+  portalUrl: 'https://portal.nitrogenblack.com',
+  authserverPublicUrl: 'https://auth.nitrogenblack.com',
+  authserverClientId: 'portal-dev-client-id',
 }
